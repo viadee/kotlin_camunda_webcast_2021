@@ -23,8 +23,12 @@ public class StartRestController {
     @PostMapping(path = "/{message}", consumes = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<String> startByMesssage(@PathVariable("message") final String message, @RequestBody final Map<String, Object> variables) {
         final Map<String, Object> vars = new HashMap<>(variables.size() + 1);
-        vars.put("startBy", "StartRestController");
-        vars.putAll(variables);
+        vars.put("int_startBy", "StartRestController");
+
+        // External variables all get the prefix 'ext_'
+        for (final Map.Entry<String, Object> entry : variables.entrySet()) {
+            vars.put("ext_" + entry.getKey(), entry.getValue());
+        }
 
         final ProcessInstance pi = runtimeService.startProcessInstanceByMessage(message, vars);
 
