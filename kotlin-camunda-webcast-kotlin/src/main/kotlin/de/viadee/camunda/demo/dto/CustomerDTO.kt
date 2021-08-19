@@ -1,55 +1,28 @@
-package de.viadee.camunda.demo.dto;
+package de.viadee.camunda.demo.dto
 
-import java.util.Objects;
+import java.util.*
 
-public class CustomerDTO {
-    private String firstname;
-    private String lastname;
-    private AddressDTO address;
+class CustomerDTO {
+    var firstname: String? = null
+    var lastname: String? = null
+    var address: AddressDTO? = null
 
-    public String getFirstname() {
-        return firstname;
+    override fun equals(other: Any?): Boolean {
+        if (this === other) return true
+        if (other == null || javaClass != other.javaClass) return false
+        val customer = other as CustomerDTO
+        return firstname == customer.firstname && lastname == customer.lastname && address == customer.address
     }
 
-    public void setFirstname(final String firstname) {
-        this.firstname = firstname;
+    override fun hashCode(): Int {
+        return Objects.hash(firstname, lastname, address)
     }
 
-    public String getLastname() {
-        return lastname;
-    }
-
-    public void setLastname(final String lastname) {
-        this.lastname = lastname;
-    }
-
-    public AddressDTO getAddress() {
-        return address;
-    }
-
-    public void setAddress(final AddressDTO address) {
-        this.address = address;
-    }
-
-    @Override
-    public boolean equals(final Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        final CustomerDTO customer = (CustomerDTO) o;
-        return Objects.equals(firstname, customer.firstname) && Objects.equals(lastname, customer.lastname) && Objects.equals(address, customer.address);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(firstname, lastname, address);
-    }
-
-    @Override
-    public String toString() {
+    override fun toString(): String {
         return "Customer{" +
                 "firstname='" + firstname + '\'' +
                 ", lastname='" + lastname + '\'' +
                 ", address=" + address +
-                '}';
+                '}'
     }
 }
