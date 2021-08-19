@@ -12,6 +12,11 @@
 
     <dependencies>
         <dependency>
+            <groupId>de.viadee.camunda.webcast</groupId>
+            <artifactId>kotlin-camunda-webcast-kotlin</artifactId>
+        </dependency>
+
+        <dependency>
             <groupId>org.camunda.bpm.springboot</groupId>
             <artifactId>camunda-bpm-spring-boot-starter-rest</artifactId>
         </dependency>

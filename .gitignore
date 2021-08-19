@@ -29,3 +29,4 @@ hs_err_pid*
 # Maven
 /target/
 /kotlin-camunda-webcast-app/target/
+/kotlin-camunda-webcast-kotlin/kotlin-camunda-webcast-kotlin.iml
