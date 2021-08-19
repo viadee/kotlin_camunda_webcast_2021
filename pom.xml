@@ -10,7 +10,6 @@
     <packaging>pom</packaging>
 
     <modules>
-        <module>kotlin-camunda-webcast-app</module>
         <module>kotlin-camunda-webcast-kotlin</module>
     </modules>
 
