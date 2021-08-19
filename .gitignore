@@ -24,10 +24,8 @@ hs_err_pid*
 
 # IntelliJ
 /.idea/
-/kotlin-camunda-webcast-app/kotlin-camunda-webcast-app.iml
+/kotlin-camunda-webcast-kotlin/kotlin-camunda-webcast-kotlin.iml
 
 # Maven
 /target/
-/kotlin-camunda-webcast-app/target/
-/kotlin-camunda-webcast-kotlin/kotlin-camunda-webcast-kotlin.iml
 /kotlin-camunda-webcast-kotlin/target/
