@@ -33,8 +33,8 @@ class ExternalContext(private val delegateExecution: DelegateExecution) {
         set(city) {
             delegateExecution.setVariable(VAR_CITY, city)
         }
-    var country: String
-        get() = delegateExecution.getVariable(VAR_CITY) as String
+    var country: String?
+        get() = delegateExecution.getVariable(VAR_COUNTRY) as String?
         set(country) {
             delegateExecution.setVariable(VAR_COUNTRY, country)
         }
