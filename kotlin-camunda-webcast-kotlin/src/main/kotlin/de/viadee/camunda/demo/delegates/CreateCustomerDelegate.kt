@@ -15,10 +15,12 @@ import java.lang.Exception
 class CreateCustomerDelegate @Autowired constructor(private val mapper: ServiceCallMapper) : JavaDelegate {
     @Throws(Exception::class)
     override fun execute(delegateExecution: DelegateExecution) {
-        val context = ExternalContext(delegateExecution)
-        val customerDTO = mapper.map(context)
-        LOGGER.info("Create customer with {}", customerDTO)
-        context.customerId = UUID.randomUUID().toString()
+        ExternalContext(delegateExecution).apply {
+            val customerDTO = mapper.map(this)
+            LOGGER.info("Create customer with {}", customerDTO)
+            customerId = UUID.randomUUID().toString()
+        }
+
     }
 
     companion object {

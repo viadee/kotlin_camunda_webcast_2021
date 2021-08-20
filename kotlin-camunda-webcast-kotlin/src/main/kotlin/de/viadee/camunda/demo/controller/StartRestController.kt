@@ -14,13 +14,11 @@ class StartRestController @Autowired constructor(private val runtimeService: Run
         @PathVariable("message") message: String?,
         @RequestBody variables: Map<String, Any>
     ): ResponseEntity<String> {
-        val vars: MutableMap<String, Any> = HashMap(variables.size + 1)
-        vars["int_startBy"] = "StartRestController"
+        val vars =variables.map {
+            // External variables all get the prefix 'ext_'
+            "ext_${it.key}" to it.value
+        }.plus("int_startBy" to "StartRestController").toMap()
 
-        // External variables all get the prefix 'ext_'
-        for ((key, value) in variables) {
-            vars["ext_$key"] = value
-        }
         val pi = runtimeService.startProcessInstanceByMessage(message, vars)
         return ResponseEntity.ok(pi.processInstanceId)
     }
