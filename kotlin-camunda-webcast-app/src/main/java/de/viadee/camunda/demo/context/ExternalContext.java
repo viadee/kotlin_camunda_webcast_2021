@@ -67,7 +67,7 @@ public class ExternalContext {
     }
 
     public String getCountry() {
-        return (String) delegateExecution.getVariable(VAR_CITY);
+        return (String) delegateExecution.getVariable(VAR_COUNTRY);
     }
 
     public void setCountry(final String country) {
