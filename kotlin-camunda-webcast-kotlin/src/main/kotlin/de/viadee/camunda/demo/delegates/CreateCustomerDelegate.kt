@@ -15,7 +15,7 @@ import java.lang.Exception
 class CreateCustomerDelegate @Autowired constructor(private val mapper: ServiceCallMapper) : JavaDelegate {
     @Throws(Exception::class)
     override fun execute(delegateExecution: DelegateExecution) {
-        ExternalContext(delegateExecution).apply {
+        with(ExternalContext(delegateExecution)) {
             val customerDTO = mapper.map(this)
             LOGGER.info("Create customer with {}", customerDTO)
             customerId = UUID.randomUUID().toString()
