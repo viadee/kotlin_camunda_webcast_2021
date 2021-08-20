@@ -28,7 +28,7 @@ internal class WorkflowTest : AbstractProcessEngineRuleTest() {
     private lateinit var restTemplate: RestTemplate
 
     @TestConfiguration
-    class WorkflowTestConfig {
+    internal class WorkflowTestConfig {
         @Bean
         fun restTemplate(): RestTemplate = RestTemplateBuilder().build()
     }
@@ -40,7 +40,7 @@ internal class WorkflowTest : AbstractProcessEngineRuleTest() {
 
         // when
         val pi = restTemplate.postForObject(
-            String.format("http://localhost:%d/start/StartMessage", port),
+            "http://localhost:$port/start/StartMessage",
             variables,
             String::class.java
         )
@@ -73,7 +73,7 @@ internal class WorkflowTest : AbstractProcessEngineRuleTest() {
 
         // when
         val pi = restTemplate.postForObject(
-            String.format("http://localhost:%d/start/StartMessage", port),
+            "http://localhost:$port/start/StartMessage",
             variables,
             String::class.java
         )
