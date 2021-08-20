@@ -3,18 +3,18 @@ package de.viadee.camunda.demo.context
 import org.camunda.bpm.engine.delegate.DelegateExecution
 
 class ExternalContext(private val delegateExecution: DelegateExecution) {
-    var customerId: String?
-        get() = delegateExecution.getVariable(VAR_CUSTOMER_ID) as String?
+    var customerId: String
+        get() = delegateExecution.getVariable(VAR_CUSTOMER_ID) as String
         set(customerId) {
             delegateExecution.setVariable(VAR_CUSTOMER_ID, customerId)
         }
-    var firstname: String?
-        get() = delegateExecution.getVariable(VAR_FIRSTNAME) as String?
+    var firstname: String
+        get() = delegateExecution.getVariable(VAR_FIRSTNAME) as String
         set(firstname) {
             delegateExecution.setVariable(VAR_FIRSTNAME, firstname)
         }
-    var lastname: String?
-        get() = delegateExecution.getVariable(VAR_LASTNAME) as String?
+    var lastname: String
+        get() = delegateExecution.getVariable(VAR_LASTNAME) as String
         set(lastname) {
             delegateExecution.setVariable(VAR_LASTNAME, lastname)
         }
@@ -23,18 +23,18 @@ class ExternalContext(private val delegateExecution: DelegateExecution) {
         set(street) {
             delegateExecution.setVariable(VAR_STREET, street)
         }
-    var zipCode: String?
-        get() = delegateExecution.getVariable(VAR_ZIP_CODE) as String?
+    var zipCode: String
+        get() = delegateExecution.getVariable(VAR_ZIP_CODE) as String
         set(zipCode) {
             delegateExecution.setVariable(VAR_ZIP_CODE, zipCode)
         }
-    var city: String?
-        get() = delegateExecution.getVariable(VAR_CITY) as String?
+    var city: String
+        get() = delegateExecution.getVariable(VAR_CITY) as String
         set(city) {
             delegateExecution.setVariable(VAR_CITY, city)
         }
-    var country: String?
-        get() = delegateExecution.getVariable(VAR_CITY) as String?
+    var country: String
+        get() = delegateExecution.getVariable(VAR_CITY) as String
         set(country) {
             delegateExecution.setVariable(VAR_COUNTRY, country)
         }

@@ -20,16 +20,9 @@ class ReadCustomerDelegate @Autowired constructor(private val mapper: ServiceCal
     }
 
     private val customer: CustomerDTO
-        get() = CustomerDTO().apply {
-            firstname = "Max"
-            lastname = "Musterfrau"
-            address = AddressDTO().apply {
-                street = "Konrad-Adenauer-Ufer 7"
-                zipCode = "50668"
-                city = "Köln"
-                country = "Germany"
-            }
-        }
+        get() = CustomerDTO("Max",
+            "Musterfrau",
+            AddressDTO("Konrad-Adenauer-Ufer 7", "50668", "Köln", "Germany"))
 
     companion object {
         @Suppress("JAVA_CLASS_ON_COMPANION")
